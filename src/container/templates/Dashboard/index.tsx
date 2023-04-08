@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
+import {styled, useTheme, Theme, CSSObject} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -43,7 +43,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
     },
 });
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -58,7 +58,7 @@ interface AppBarProps extends MuiAppBarProps {
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
+})<AppBarProps>(({theme, open}) => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
@@ -74,8 +74,8 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
+    ({theme, open}) => ({
         width: drawerWidth,
         flexShrink: 0,
         whiteSpace: 'nowrap',
@@ -104,8 +104,8 @@ export default function Dashboard() {
     };
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
+        <Box sx={{display: 'flex'}}>
+            <CssBaseline/>
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
@@ -115,10 +115,10 @@ export default function Dashboard() {
                         edge="start"
                         sx={{
                             marginRight: 5,
-                            ...(open && { display: 'none' }),
+                            ...(open && {display: 'none'}),
                         }}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Mini variant drawer
@@ -128,13 +128,13 @@ export default function Dashboard() {
             <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
                     </IconButton>
                 </DrawerHeader>
-                <Divider />
+                <Divider/>
                 <List>
                     {router.map((text, index) => (
-                        <ListItem key={text.label} disablePadding sx={{ display: 'block' }}>
+                        <ListItem key={text.label} disablePadding sx={{display: 'block'}}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,
@@ -149,17 +149,17 @@ export default function Dashboard() {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
                                 </ListItemIcon>
-                                <ListItemText primary={text.label} sx={{ opacity: open ? 1 : 0 }} />
+                                <ListItemText primary={text.label} sx={{opacity: open ? 1 : 0}}/>
                             </ListItemButton>
                         </ListItem>
                     ))}
                 </List>
-                <Divider />
+                <Divider/>
                 <List>
                     {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                        <ListItem key={text} disablePadding sx={{display: 'block'}}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,
@@ -174,16 +174,16 @@ export default function Dashboard() {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
                                 </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                                <ListItemText primary={text} sx={{opacity: open ? 1 : 0}}/>
                             </ListItemButton>
                         </ListItem>
                     ))}
                 </List>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <DrawerHeader />
+            <Box component="main" sx={{flexGrow: 1, p: 3}}>
+                <DrawerHeader/>
                 <Typography paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
